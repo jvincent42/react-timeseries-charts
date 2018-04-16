@@ -184,7 +184,8 @@ export default class EventMarker extends React.Component {
             align: "left",
             style: this.props.infoStyle,
             width: this.props.infoWidth,
-            height: this.props.infoHeight
+            height: this.props.infoHeight,
+            infoTextStyle: this.props.infoTextStyle
         };
 
         const w = this.props.infoWidth;

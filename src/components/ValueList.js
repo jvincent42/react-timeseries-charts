@@ -20,27 +20,29 @@ import PropTypes from "prop-types";
  *      +----------------+
  */
 const ValueList = props => {
-    const { align, style, width, height } = props;
+    const { align, infoTextStyle, style, width, height } = props;
 
     if (!props.values.length) {
         return <g />;
     }
 
-    const textStyle = {
-        fontSize: 11,
-        textAnchor: "left",
-        fill: "#b0b0b0",
-        pointerEvents: "none"
-    };
-
-    const textStyleCentered = {
-        fontSize: 11,
-        textAnchor: "middle",
-        fill: "#bdbdbd",
-        pointerEvents: "none"
-    };
-
     const values = props.values.map((item, i) => {
+        const textStyle = {
+            fontSize: 11,
+            textAnchor: "left",
+            fill: "#b0b0b0",
+            pointerEvents: "none",
+            ...(infoTextStyle[item.key] || {})
+        };
+
+        const textStyleCentered = {
+            fontSize: 11,
+            textAnchor: "middle",
+            fill: "#bdbdbd",
+            pointerEvents: "none",
+            ...(infoTextStyle[item.key] || {})
+        };
+
         if (align === "left") {
             return (
                 <g key={i}>
