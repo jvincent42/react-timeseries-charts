@@ -47,8 +47,10 @@ const ValueList = props => {
             return (
                 <g key={i}>
                     <text x={10} y={5} dy={`${(i + 1) * 1.2}em`} style={textStyle}>
-                        <tspan style={{ fontWeight: 700 }}>{`${item.label}: `}</tspan>
-                        <tspan>{`${item.value}`}</tspan>
+                        <tspan style={{ fontWeight: 700 }}>{`${item.label}${
+                            item.value ? ": " : ""
+                        }`}</tspan>
+                        <tspan>{`${item.value || ""}`}</tspan>
                     </text>
                 </g>
             );
